@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/read}" method="POST" enctype="multipart/form-data">
+    <input type="file" th:name="file">
+    <label>
+        <input th:type="submit" value="submit" />
+    </label>
+</form>
+</body>
+</html>
