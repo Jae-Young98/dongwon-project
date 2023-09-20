@@ -1,4 +1,4 @@
-package com.hnu.dongwon.dao;
+package com.hnu.dongwon.dto;
 
 import lombok.Getter;
 import lombok.Setter;

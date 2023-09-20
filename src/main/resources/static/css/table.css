@@ -1,0 +1,16 @@
+.panel .table > thead > tr > th:first-child {
+    padding-left: 0;
+}
+
+table {
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: center;
+    width: 180px;
+}
+
+.col-md-6 {
+    width: auto;
+}
