@@ -78,7 +78,7 @@
 				<nav>
 					<ul class="nav">
 						<li><a th:href="@{/}" class=""><i class="lnr lnr-home"></i> <span>Main</span></a></li>
-						<li><a th:href="@{/tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a th:href="@{tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -117,7 +117,9 @@
 			<div class="main-content">
 				<div class="container-fluid">
 					<h3 class="page-title">검색 결과</h3>
-					<span class="input-group-btn"><button type="submit" class="btn btn-success">download</button></span>
+					<div class="input-group">
+						<span class="input-group-btn"><button id="download" type="submit" class="btn btn-success">다운로드</button></span>
+					</div>
 					<div class="panel" th:if="${searchResult} == 0">
 						<div class="panel-heading">
 							<h3 class="panel-title">검색 결과를 찾을 수 없습니다.</h3>
@@ -128,7 +130,7 @@
 							<!-- TABLE HOVER -->
 							<div class="panel" th:if="${searchResult} != 0">
 								<div class="panel-body">
-									<table class="table table-hover">
+									<table id="data-table" class="table table-hover">
 										<thead>
 											<tr>
 												<th style="width: 50px; padding: 10px"><input type="checkbox" id = "checkAll"></th>
@@ -168,6 +170,7 @@
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/scripts/klorofil-common.js"></script>
+	<script src="/scripts/table-parse.js"></script>
 </body>
 
 </html>
