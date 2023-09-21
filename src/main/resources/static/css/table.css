@@ -6,11 +6,21 @@ table {
     table-layout: fixed;
 }
 
-th, td {
+tr > th, td {
+    vertical-align: middle;
     text-align: center;
-    width: 180px;
+    width: 200px;
+}
+
+.checkbox {
+    width: 50px;
+    padding: 10px;
 }
 
 .col-md-6 {
     width: auto;
+}
+
+.input-group-addon, .input-group-btn {
+    width: 100px;
 }
