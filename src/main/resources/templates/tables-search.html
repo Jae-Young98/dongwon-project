@@ -78,9 +78,9 @@
 				<nav>
 					<ul class="nav">
 						<li><a th:href="@{/}" class=""><i class="lnr lnr-home"></i> <span>Main</span></a></li>
-						<li><a th:href="@{tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a th:href="@{/tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="page-profile.html" class="">Profile</a></li>
@@ -90,8 +90,48 @@
 							</div>
 						</li>
 						<li>
-							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-rocket"></i> <span>Develpments tools</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPages3" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>자원관리 점검</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages3" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPages4" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>참고자료</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages4" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPages5" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>교육훈련 점검</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages5" class="collapse ">
+								<ul class="nav">
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<a href="#subPages6" data-toggle="collapse" class="collapsed"><i class="lnr lnr-rocket"></i> <span>Develpments tools</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages6" class="collapse ">
 								<ul class="nav">
 									<li><a href="typography.html" class="">Typography</a></li>
 									<li><a href="icons.html" class="">Icons</a></li>
@@ -118,6 +158,7 @@
 				<div class="container-fluid">
 					<h3 class="page-title">검색 결과</h3>
 					<div class="input-group">
+						<span class="input-group-btn"><button id="delBtn" type="submit" class="btn btn-danger">행 삭제</button></span>
 						<span class="input-group-btn"><button id="download" type="submit" class="btn btn-success">다운로드</button></span>
 					</div>
 					<div class="panel" th:if="${searchResult} == 0">
@@ -133,7 +174,7 @@
 									<table id="data-table" class="table table-hover">
 										<thead>
 											<tr>
-												<th style="width: 50px; padding: 10px"><input type="checkbox" id = "checkAll"></th>
+												<th style="width: 50px; padding: 10px"><input type="checkbox" id="checkAll"></th>
 												<th th:each="key : ${result[0]}">
 													<span  th:text="${key.getKey()}"></span>
 												</th>
@@ -141,7 +182,7 @@
 										</thead>
 										<tbody>
 											<tr th:each="row : ${result}">
-												<td style="width: 50px; padding: 10px"> <input type="checkbox"></td>
+												<td style="width: 50px; padding: 10px"> <input type="checkbox" class="chk"></td>
 												<td th:each="value : ${row.values()}" th:text="${value}"></td>
 											</tr>
 										</tbody>
