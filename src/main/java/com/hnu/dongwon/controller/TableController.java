@@ -24,6 +24,11 @@ public class TableController {
     private final SearchService searchService;
     private List<Map<String, Object>> dataSet;
 
+    @GetMapping("/tables")
+    public String tables() {
+        return "redirect:/tables";
+    }
+
     @PostMapping("/search")
     public String sqlSearchResult(Model model, @RequestParam("sql") String searchSyntax) {
         // model.addAttribute("result", testRepository.dbSearch(searchSyntax));
@@ -89,8 +94,8 @@ public class TableController {
         return "tables-search";
     }
 
-    @PostMapping("/download")
-    public void jsonToObject(@RequestBody List<Map<String, Object>> jsonData) {
+    @PostMapping("/toJson")
+    public String jsonToObject(@RequestBody List<Map<String, Object>> jsonData) {
         //         리스트 키, 값 확인용
         for (int i = 0; i < jsonData.size(); i++) {
             System.out.println("entrySet : " + jsonData.get(i).entrySet());
@@ -104,10 +109,10 @@ public class TableController {
             }
         }
         dataSet = jsonData;
-
+        return "redirect:/";
     }
 
-    @GetMapping("/download/test")
+    @GetMapping("/download")
     public void download(HttpServletResponse res) throws IOException {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("Sheet1");
