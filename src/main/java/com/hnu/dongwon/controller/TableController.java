@@ -24,11 +24,6 @@ public class TableController {
     private final SearchService searchService;
     private List<Map<String, Object>> dataSet;
 
-    @GetMapping("/tables")
-    public String tables() {
-        return "redirect:/tables";
-    }
-
     @PostMapping("/search")
     public String sqlSearchResult(Model model, @RequestParam("sql") String searchSyntax) {
         // model.addAttribute("result", testRepository.dbSearch(searchSyntax));

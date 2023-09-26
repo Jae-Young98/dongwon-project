@@ -76,7 +76,7 @@
 				<nav>
 					<ul class="nav">
 						<li><a th:href="@{/}" class=""><i class="lnr lnr-home"></i> <span>Main</span></a></li>
-						<li><a th:href="@{tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a th:href="@{/tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -139,6 +139,11 @@
 								</ul>
 							</div>
 						</li>
+						<li>
+							<div class="side-nav-btn-group">
+								<span class="input-btn"><button id="download" type="button" class="btn btn-success" data-toggle="modal" data-target="#worksModal">업무 관리</button></span>
+							</div>
+						</li>
 						<!-- <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 						<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
 						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
@@ -179,6 +184,29 @@
 				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
 			</div>
 		</footer>
+	<!-- Modal -->
+	<div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">업무 관리</h4>
+				</div>
+				<div class="modal-body">
+					<h4>관리할 업무를 선택 하세요.</h4>
+					<ul class="nav">
+						<li><a th:href="@{/manage/national-defense}" class=""><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span></a></li>
+						<li><a th:href="@{/manage/univ}" class=""><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span></a></li>
+						<li><a th:href="@{/manage/resource}" class=""><i class="lnr lnr-file-empty"></i> <span>자원관리 점검</span></a></li>
+						<li><a th:href="@{/manage/references}" class=""><i class="lnr lnr-file-empty"></i> <span>참고자료</span></a></li>
+						<li><a th:href="@{/manage/training}" class=""><i class="lnr lnr-file-empty"></i> <span>교육훈련 점검</span></a></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->

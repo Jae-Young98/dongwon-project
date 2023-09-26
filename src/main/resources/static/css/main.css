@@ -1768,7 +1768,7 @@ ul.activity-timeline > li {
 }
 
 .clock > span {
-  color: gray;
+  color: rgb(128, 128, 128);
 }
 
 #date {
@@ -1781,5 +1781,19 @@ ul.activity-timeline > li {
 
 #apm {
   font-size: 50px;
+}
+
+.side-nav-btn-group {
+  width: 100%;
+  text-align: center;
+}
+
+.input-btn {
+  width: 100%;
+}
+
+.btn:active, .btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
 }
 /*# sourceMappingURL=main.css.map */

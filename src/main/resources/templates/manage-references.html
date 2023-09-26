@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>검색 결과 | 한남대학교 - 국동체 보조업무</title>
+	<title>Tables | 한남대학교 - 국동체 보조업무</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -13,13 +13,11 @@
 	<link rel="stylesheet" th:href="@{/css/main.css}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" th:href="@{/css/demo.css}">
-	<!-- My CSS-->
-	<link rel="stylesheet" th:href="@{/css/table.css}">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" th:href="@{/img/real-favicon.png}">
-	<link rel="icon" type="image/png" sizes="96x96" th:href="@{/img/real-favicon.png}">
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/real-favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/img/real-favicon.png">
 </head>
 
 <body>
@@ -77,8 +75,8 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a th:href="@{/}" class=""><i class="lnr lnr-home"></i> <span>Main</span></a></li>
-						<li><a th:href="@{/tables}" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a th:href="@{/}" class="active"><i class="lnr lnr-home"></i> <span>Main</span></a></li>
+						<li><a th:href="@{/tables}" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
 						<li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
@@ -143,7 +141,7 @@
 						</li>
 						<li>
 							<div class="side-nav-btn-group">
-								<span class="input-btn"><button id="modal-btn" type="button" class="btn btn-success" data-toggle="modal" data-target="#worksModal">업무 관리</button></span>
+								<span class="input-btn"><button id="download" type="button" class="btn btn-success" data-toggle="modal" data-target="#worksModal">업무 관리</button></span>
 							</div>
 						</li>
 						<!-- <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
@@ -161,40 +159,46 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title">검색 결과</h3>
-					<div class="input-group">
-						<span class="input-group-btn"><button id="delBtn" type="submit" class="btn btn-danger">행 삭제</button></span>
-						<span class="input-group-btn"><button id="download" type="submit" class="btn btn-success">다운로드</button></span>
-					</div>
-					<div class="panel" th:if="${searchResult} == 0">
-						<div class="panel-heading">
-							<h3 class="panel-title">검색 결과를 찾을 수 없습니다.</h3>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<!-- TABLE HOVER -->
-							<div class="panel" th:if="${searchResult} != 0">
-								<div class="panel-body">
-									<table id="data-table" class="table table-hover">
-										<thead>
-											<tr>
-												<th style="width: 50px; padding: 10px"><input type="checkbox" id="checkAll"></th>
-												<th th:each="key : ${result[0]}">
-													<span  th:text="${key.getKey()}"></span>
-												</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr th:each="row : ${result}">
-												<td style="width: 50px; padding: 10px"> <input type="checkbox" class="chk"></td>
-												<td th:each="value : ${row.values()}" th:text="${value}"></td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
+					<h3 class="page-title">references management tool</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">업무별 쿼리 목록</h3>
 							</div>
-							<!-- END TABLE HOVER -->
+							<div class="panel-body">
+								<table class="table table-hover">
+									<thead>
+									<tr>
+										<th>temp</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>3</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- END TABLE HOVER -->
+					</div>
+					<div class="col-md-6">
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">상세보기</h3>
+							</div>
+							<div class="panel-body">
+								<p>업무 쿼리 상세 들어갈 자리</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -208,27 +212,27 @@
 				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
 			</div>
 		</footer>
-		<!-- Modal -->
-		<div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">업무 관리</h4>
-					</div>
-					<div class="modal-body">
-						<h4>관리할 업무를 선택 하세요.</h4>
-						<ul class="nav">
-							<li><a th:href="@{/manage/national-defense}" class=""><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span></a></li>
-							<li><a th:href="@{/manage/univ}" class=""><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span></a></li>
-							<li><a th:href="@{/manage/resource}" class=""><i class="lnr lnr-file-empty"></i> <span>자원관리 점검</span></a></li>
-							<li><a th:href="@{/manage/references}" class=""><i class="lnr lnr-file-empty"></i> <span>참고자료</span></a></li>
-							<li><a th:href="@{/manage/training}" class=""><i class="lnr lnr-file-empty"></i> <span>교육훈련 점검</span></a></li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">업무 관리</h4>
+				</div>
+				<div class="modal-body">
+					<h4>관리할 업무를 선택 하세요.</h4>
+					<ul class="nav">
+						<li><a th:href="@{/manage/national-defense}" class=""><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span></a></li>
+						<li><a th:href="@{/manage/univ}" class=""><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span></a></li>
+						<li><a th:href="@{/manage/resource}" class=""><i class="lnr lnr-file-empty"></i> <span>자원관리 점검</span></a></li>
+						<li><a th:href="@{/manage/references}" class=""><i class="lnr lnr-file-empty"></i> <span>참고자료</span></a></li>
+						<li><a th:href="@{/manage/training}" class=""><i class="lnr lnr-file-empty"></i> <span>교육훈련 점검</span></a></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -239,7 +243,6 @@
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/scripts/klorofil-common.js"></script>
-	<script src="/scripts/table-parse.js"></script>
 </body>
 
 </html>
