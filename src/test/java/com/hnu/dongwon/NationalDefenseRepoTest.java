@@ -5,20 +5,14 @@ import com.hnu.dongwon.dto.NationalDefenseSaveRequestDto;
 import com.hnu.dongwon.entity.NationalDefense;
 import com.hnu.dongwon.repository.ManageNationalDefenseRepository;
 import com.hnu.dongwon.service.NationalDefenseService;
-import org.junit.After;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
