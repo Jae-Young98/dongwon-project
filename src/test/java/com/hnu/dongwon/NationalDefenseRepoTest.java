@@ -69,7 +69,7 @@ public class NationalDefenseRepoTest {
         String category = "편성카드";
         String type = "전처리";
         int orderCost = 1;
-        String name = "삭제_국동체_소속부대별";
+        String name = "테스트 네임";
         String query = "test Query";
         String description = "asdafasf";
         String others = "aaaa";
@@ -86,7 +86,7 @@ public class NationalDefenseRepoTest {
         nationalDefenseService.save(requestDto);
         nationalDefenseService.findByName(name);
 
-        NationalDefenseResponseDto data = nationalDefenseService.findById(1L);
+        NationalDefenseResponseDto data = nationalDefenseService.findById(2L);
         NationalDefenseResponseDto find = nationalDefenseService.findByName(name);
         assertThat(data.getName()).isEqualTo(find.getName());
         System.err.println(data.getName());
