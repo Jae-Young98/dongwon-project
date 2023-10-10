@@ -150,7 +150,7 @@
 										<td th:text="${data.type}"></td>
 										<td th:text="${data.orderCost}"></td>
 										<td>
-											<a th:href="@{/manage/national-defense/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
+											<a th:href="@{/manage-nationalDefense/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
 										</td>
 									</tr>
 									</tbody>
@@ -165,7 +165,41 @@
 								<h3 class="panel-title">상세보기</h3>
 							</div>
 							<div class="panel-body">
-								<p>업무 쿼리 상세 들어갈 자리</p>
+								<form>
+									<div class="form-group">
+										<label for="category">업무명</label>
+										<input type="text" class="form-control" id="update-category" th:value="${data.category}">
+									</div>
+									<div class="form-group">
+										<label for="type">유형</label>
+										<input type="text" class="form-control" id="update-type" th:value="${data.type}">
+									</div>
+									<div class="form-group">
+										<label for="orderCost">우선순위</label>
+										<input type="text" class="form-control" id="update-orderCost" th:value="${data.orderCost}">
+									</div>
+									<div class="form-group">
+										<label for="name" id="id" th:value="${data.id}">쿼리명</label>
+										<input type="text" class="form-control" id="update-name" th:value="${data.name}">
+									</div>
+									<div class="form-group">
+										<label for="description">설명</label>
+										<input type="text" class="form-control" id="update-description" th:value="${data.description}">
+									</div>
+									<div class="form-group">
+										<label for="others">제한사항</label>
+										<input type="text" class="form-control" id="update-others" th:value="${data.others}">
+									</div>
+									<div class="form-group">
+										<label for="query">쿼리</label>
+										<textarea class="form-control" id="update-query" th:text="${data.query}"></textarea>
+									</div>
+								</form>
+								<div class="btn-group">
+									<span class="group-btn"><button id="a" type="button" class="btn btn-success">A</button></span>
+									<span class="group-btn"><button id="b" type="button" class="btn btn-danger">B</button></span>
+									<span class="group-btn"><button type="button" class="btn btn-primary" th:onclick="|location.href='@{/manage/national-defense}'|">취소</button></span>
+								</div>
 							</div>
 						</div>
 					</div>

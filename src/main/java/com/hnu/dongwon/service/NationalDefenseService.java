@@ -1,5 +1,6 @@
 package com.hnu.dongwon.service;
 
+import com.hnu.dongwon.dto.NationalDefenseListResponseDto;
 import com.hnu.dongwon.dto.NationalDefenseResponseDto;
 import com.hnu.dongwon.dto.NationalDefenseSaveRequestDto;
 import com.hnu.dongwon.dto.NationalDefenseUpdateRequestDto;
@@ -9,11 +10,21 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class NationalDefenseService {
 
     private final ManageNationalDefenseRepository manageNationalDefenseRepository;
+
+    @Transactional(readOnly = true)
+    public List<NationalDefenseListResponseDto> findAllAsc() {
+        return manageNationalDefenseRepository.findAllAsc().stream()
+                .map(NationalDefenseListResponseDto::new)
+                .collect(Collectors.toList());
+    }
 
     @Transactional
     public Long save(NationalDefenseSaveRequestDto requestDto) {

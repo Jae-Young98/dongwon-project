@@ -1,0 +1,7 @@
+tr > th, td {
+    text-align: center;
+}
+
+textarea {
+    min-height: 50px;
+}
