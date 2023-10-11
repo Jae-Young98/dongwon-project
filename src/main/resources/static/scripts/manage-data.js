@@ -6,6 +6,14 @@ const main = {
         $('#btn-save').on('click', function () {
             _this.save();
         });
+
+        $('#btn-update').on('click', function () {
+            _this.update();
+        });
+
+        $('#btn-delete').on('click', function () {
+            _this.delete();
+        })
     },
 
     save : function () {
@@ -42,9 +50,9 @@ const main = {
             query: $('#update-query').val(),
             description: $('#update-description').val(),
             others: $('#update-others').val()
-        }
+        };
 
-        const id = $('#id').val();
+        let id = $('#data-id').val();
 
         $.ajax({
             type: 'PUT',
@@ -54,6 +62,22 @@ const main = {
             data: JSON.stringify(data)
         }).done(function () {
             alert('업무가 수정 되었습니다.');
+            window.location.href = '/manage/national-defense';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
+    delete : function () {
+        let id = $('#data-id').val();
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api/nd-data/'+id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8'
+        }).done(function () {
+            alert('업무가 삭제 되었습니다.');
             window.location.href = '/manage/national-defense';
         }).fail(function (error) {
             alert(JSON.stringify(error));

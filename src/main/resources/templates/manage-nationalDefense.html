@@ -159,16 +159,6 @@
 						</div>
 						<!-- END TABLE HOVER -->
 					</div>
-					<div class="col-md-6">
-						<div class="panel">
-							<div class="panel-heading">
-								<h3 class="panel-title">상세보기</h3>
-							</div>
-							<div class="panel-body">
-								<p>업무 쿼리 상세 들어갈 자리</p>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 			<!-- END MAIN CONTENT -->
@@ -224,7 +214,8 @@
 					</div>
 					<div class="form-group">
 						<label for="orderCost">우선순위</label>
-						<input type="text" class="form-control" id="orderCost" placeholder="**중복 되지 않도록 주의**">
+						<input type="text" class="form-control" id="orderCost" oninput="validateInput(this)" placeholder="**중복 되지 않도록 주의**">
+						<div id="notification" class="notification">숫자를 입력해주세요.</div>
 					</div>
 					<div class="form-group">
 						<label for="name">쿼리명</label>
@@ -257,6 +248,7 @@
 	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/scripts/klorofil-common.js"></script>
 	<script src="/scripts/manage-data.js"></script>
+	<script src="/scripts/basic.js"></script>
 </body>
 
 </html>
