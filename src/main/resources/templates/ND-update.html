@@ -123,10 +123,10 @@
 				<div class="container-fluid">
 					<h3 class="page-title" id="manage" value="NationalDefense">Defense data management tool</h3>
 				</div>
-				<div class="btn-group">
-					<span class="group-btn"><button id="NDDataAdd" type="button" class="btn btn-success" data-toggle="modal" data-target="#insertModal">추가</button></span>
-					<span class="group-btn"><button id="delBtn" type="submit" class="btn btn-danger">삭제</button></span>
-				</div>
+<!--				<div class="btn-group">-->
+<!--					<span class="group-btn"><button id="NDDataAdd" type="button" class="btn btn-success" data-toggle="modal" data-target="#insertModal">추가</button></span>-->
+<!--					<span class="group-btn"><button id="delBtn" type="submit" class="btn btn-danger">삭제</button></span>-->
+<!--				</div>-->
 				<div class="row">
 					<div class="col-md-6">
 						<!-- TABLE HOVER -->
@@ -150,7 +150,7 @@
 										<td th:text="${data.type}"></td>
 										<td th:text="${data.orderCost}"></td>
 										<td>
-											<a th:href="@{/manage-nationalDefense/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
+											<a th:href="@{/manage/national-defense/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
 										</td>
 									</tr>
 									</tbody>
@@ -166,6 +166,7 @@
 							</div>
 							<div class="panel-body">
 								<form>
+									<input type="hidden" id="data-id" th:value="${data.id}">
 									<div class="form-group">
 										<label for="category">업무명</label>
 										<input type="text" class="form-control" id="update-category" th:value="${data.category}">
@@ -176,10 +177,11 @@
 									</div>
 									<div class="form-group">
 										<label for="orderCost">우선순위</label>
-										<input type="text" class="form-control" id="update-orderCost" th:value="${data.orderCost}">
+										<input type="text" class="form-control" id="update-orderCost" oninput="validateInput(this)" th:value="${data.orderCost}">
+										<div id="notification" class="notification">숫자를 입력해주세요.</div>
 									</div>
 									<div class="form-group">
-										<label for="name" id="id" th:value="${data.id}">쿼리명</label>
+										<label for="name">쿼리명</label>
 										<input type="text" class="form-control" id="update-name" th:value="${data.name}">
 									</div>
 									<div class="form-group">
@@ -196,8 +198,8 @@
 									</div>
 								</form>
 								<div class="btn-group">
-									<span class="group-btn"><button id="a" type="button" class="btn btn-success">A</button></span>
-									<span class="group-btn"><button id="b" type="button" class="btn btn-danger">B</button></span>
+									<span class="group-btn"><button id="btn-update" type="button" class="btn btn-success">수정</button></span>
+									<span class="group-btn"><button id="btn-delete" type="button" class="btn btn-danger">삭제</button></span>
 									<span class="group-btn"><button type="button" class="btn btn-primary" th:onclick="|location.href='@{/manage/national-defense}'|">취소</button></span>
 								</div>
 							</div>
@@ -258,7 +260,7 @@
 					</div>
 					<div class="form-group">
 						<label for="orderCost">우선순위</label>
-						<input type="text" class="form-control" id="orderCost" placeholder="**중복 되지 않도록 주의**">
+						<input type="text" class="form-control" id="orderCost" oninput="validateInput(this)" placeholder="**중복 되지 않도록 주의**">
 					</div>
 					<div class="form-group">
 						<label for="name">쿼리명</label>
@@ -291,6 +293,7 @@
 	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/scripts/klorofil-common.js"></script>
 	<script src="/scripts/manage-data.js"></script>
+	<script src="/scripts/basic.js"></script>
 </body>
 
 </html>

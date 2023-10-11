@@ -5,3 +5,14 @@ tr > th, td {
 textarea {
     min-height: 50px;
 }
+
+.error {
+    border: 2px solid red;
+}
+
+.notification {
+    display: none;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

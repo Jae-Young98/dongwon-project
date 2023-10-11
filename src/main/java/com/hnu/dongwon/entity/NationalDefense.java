@@ -40,7 +40,9 @@ public class NationalDefense {
     @Column
     private String others;
 
-    public void update(String name, String query, String description, String others) {
+    public void update(String type, int orderCost, String name, String query, String description, String others) {
+        this.type = type;
+        this.orderCost = orderCost;
         this.name = name;
         this.query = query;
         this.description = description;

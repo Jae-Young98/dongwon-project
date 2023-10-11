@@ -35,9 +35,16 @@ public class NationalDefenseService {
     public Long update(Long id, NationalDefenseUpdateRequestDto requestDto) {
         NationalDefense nationalDefense = manageNationalDefenseRepository.findById(id).orElseThrow(() -> new
                 IllegalArgumentException("해당 쿼리문이 존재하지 않습니다. id = " + id));
-        nationalDefense.update(requestDto.getName(), requestDto.getQuery(), requestDto.getDescription(), requestDto.getOthers());
+        nationalDefense.update(requestDto.getType(), requestDto.getOrderCost(), requestDto.getName(), requestDto.getQuery(), requestDto.getDescription(), requestDto.getOthers());
 
         return id;
+    }
+
+    @Transactional
+    public void delete(Long id) {
+        NationalDefense nationalDefense = manageNationalDefenseRepository.findById(id).orElseThrow(() -> new
+                IllegalArgumentException("해당 업무가 존재하지 않습니다. id = " + id));
+        manageNationalDefenseRepository.delete(nationalDefense);
     }
 
     public NationalDefenseResponseDto findById (Long id) {

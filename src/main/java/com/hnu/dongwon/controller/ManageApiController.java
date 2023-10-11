@@ -20,8 +20,14 @@ public class ManageApiController {
     }
 
     @PutMapping("/nd-data/{id}")
-    public Long naUpdate(@PathVariable Long id, @RequestBody NationalDefenseUpdateRequestDto requestDto) {
+    public Long ndUpdate(@PathVariable Long id, @RequestBody NationalDefenseUpdateRequestDto requestDto) {
         return nationalDefenseService.update(id, requestDto);
+    }
+
+    @DeleteMapping("/nd-data/{id}")
+    public Long ndDelete(@PathVariable Long id) {
+        nationalDefenseService.delete(id);
+        return id;
     }
 
     @GetMapping("/nd-data/{id}")
