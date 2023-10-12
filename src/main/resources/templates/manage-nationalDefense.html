@@ -125,7 +125,7 @@
 				</div>
 				<div class="btn-group">
 					<span class="group-btn"><button id="NDDataAdd" type="button" class="btn btn-success" data-toggle="modal" data-target="#insertModal">추가</button></span>
-					<span class="group-btn"><button id="delBtn" type="submit" class="btn btn-danger">삭제</button></span>
+					<span class="group-btn"><button id="btn-deleteSelected" type="submit" class="btn btn-danger">삭제</button></span>
 				</div>
 				<div class="row">
 					<div class="col-md-6">
@@ -138,6 +138,7 @@
 								<table class="table table-hover">
 									<thead>
 									<tr>
+										<th style="width: 50px; padding: 10px"><input type="checkbox" id="checkAll"></th>
 										<th style="width: 100px">업무명</th>
 										<th style="width: 100px">유형</th>
 										<th style="width: 100px">우선순위</th>
@@ -146,11 +147,12 @@
 									</thead>
 									<tbody>
 									<tr th:each="data : ${datas}">
+										<td style="width: 50px; padding: 10px"> <input type="checkbox" name="child-chk" class="chk" th:value="${data.id}"></td>
 										<td th:text="${data.category}"></td>
 										<td th:text="${data.type}"></td>
 										<td th:text="${data.orderCost}"></td>
 										<td>
-											<a th:href="@{/manage/national-defense/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
+											<a th:href="@{/manage/national-defense/{id}(id = ${data.id})}" th:text="${data.name}"></a>
 										</td>
 									</tr>
 									</tbody>

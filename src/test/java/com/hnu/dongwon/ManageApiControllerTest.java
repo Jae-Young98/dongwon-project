@@ -93,14 +93,14 @@ public class ManageApiControllerTest {
                 .description(description)
                 .others(others)
                 .build());
-        Long updataId = saveData.getId();
+        Long updateId = saveData.getId();
         String expectedDescription = "update test";
 
         NationalDefenseUpdateRequestDto requestDto = NationalDefenseUpdateRequestDto.builder()
                 .description(expectedDescription)
                 .build();
 
-        String url = "http://localhost:" + port + "/api/nd-data/" + updataId;
+        String url = "http://localhost:" + port + "/api/nd-data/" + updateId;
 
         HttpEntity<NationalDefenseUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
@@ -112,7 +112,7 @@ public class ManageApiControllerTest {
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
         List<NationalDefense> dataList = manageNationalDefenseRepository.findAll();
-        assertThat(dataList.get(0).getDescription()).isEqualTo(expectedDescription);
-        System.err.println(dataList.get(0).getDescription());
+        assertThat(dataList.get(1).getDescription()).isEqualTo(expectedDescription);
+        System.err.println(dataList.get(1).getDescription());
     }
 }
