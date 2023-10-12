@@ -7,6 +7,8 @@ import com.hnu.dongwon.service.NationalDefenseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
@@ -28,6 +30,13 @@ public class ManageApiController {
     public Long ndDelete(@PathVariable Long id) {
         nationalDefenseService.delete(id);
         return id;
+    }
+
+    @DeleteMapping("/nd-data/deleteSelected")
+    public void ndDeleteSelected(@RequestBody List<Long> ids) {
+        for (Long id : ids) {
+            nationalDefenseService.delete(id);
+        }
     }
 
     @GetMapping("/nd-data/{id}")
