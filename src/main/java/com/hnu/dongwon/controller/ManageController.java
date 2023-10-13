@@ -24,7 +24,7 @@ public class ManageController {
 
     @GetMapping("/national-defense")
     public String nationalDefense(Model model) {
-        model.addAttribute("datas", nationalDefenseService.findAllAsc());
+        model.addAttribute("datas", nationalDefenseService.findByWorkIs("국방자료업데이트"));
 
         return "manage-nationalDefense";
     }
@@ -32,7 +32,7 @@ public class ManageController {
     @GetMapping("/national-defense/{id}")
     public String nationalDefenseUpdate(@PathVariable Long id, Model model) {
         NationalDefenseResponseDto dto = nationalDefenseService.findById(id);
-        model.addAttribute("datas", nationalDefenseService.findAllAsc());
+        model.addAttribute("datas", nationalDefenseService.findByWorkIs("국방자료업데이트"));
         model.addAttribute("data", dto);
 
         return "ND-update";

@@ -26,6 +26,20 @@ public class NationalDefenseService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public List<NationalDefenseListResponseDto> findByWorkIs(String work) {
+        return manageNationalDefenseRepository.findByWorkIs(work).stream()
+                .map(NationalDefenseListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<NationalDefenseListResponseDto> findByCategoryIs(String category) {
+        return manageNationalDefenseRepository.findByCategoryIs(category).stream()
+                .map(NationalDefenseListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
     @Transactional
     public Long save(NationalDefenseSaveRequestDto requestDto) {
         return manageNationalDefenseRepository.save(requestDto.toEntity()).getId();
@@ -34,7 +48,7 @@ public class NationalDefenseService {
     @Transactional
     public Long update(Long id, NationalDefenseUpdateRequestDto requestDto) {
         NationalDefense nationalDefense = manageNationalDefenseRepository.findById(id).orElseThrow(() -> new
-                IllegalArgumentException("해당 쿼리문이 존재하지 않습니다. id = " + id));
+                IllegalArgumentException("해당 업무가 존재하지 않습니다. id = " + id));
         nationalDefense.update(requestDto.getType(), requestDto.getOrderCost(), requestDto.getName(), requestDto.getQuery(), requestDto.getDescription(), requestDto.getOthers());
 
         return id;

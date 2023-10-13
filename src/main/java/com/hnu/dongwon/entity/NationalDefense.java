@@ -15,9 +15,15 @@ import javax.persistence.*;
 @Entity
 public class NationalDefense {
 
+    // 실제 DB의 테이블과 매핑, 객체
+    // persistent 목적의 객체이기 때문에, request, response 값 전달 용도로 사용 x
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    // 업무 분류 ex ) 국방자료 업데이트, 대학자료 업데이트 ...
+    @Column
+    private String work;
 
     @Column
     private String category;

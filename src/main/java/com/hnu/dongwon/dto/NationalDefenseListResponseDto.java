@@ -6,17 +6,19 @@ import lombok.Getter;
 @Getter
 public class NationalDefenseListResponseDto {
 
-    private final Long id;
-    private final String category;
-    private final String type;
-    private final int orderCost;
-    private final String name;
-    private final String query;
-    private final String description;
-    private final String others;
+    private Long id;
+    private String work;
+    private String category;
+    private String type;
+    private int orderCost;
+    private String name;
+    private String query;
+    private String description;
+    private String others;
 
     public NationalDefenseListResponseDto(NationalDefense entity) {
         this.id = entity.getId();
+        this.work = entity.getWork();
         this.category = entity.getCategory();
         this.type = entity.getType();
         this.orderCost = entity.getOrderCost();
