@@ -71,7 +71,7 @@
 								<li><a href="page-profile.html" class="">성명 군번 불일치</a></li>
 								<li><a href="page-profile.html" class="">보류 입력 누락자</a></li>
 								<li><a href="page-profile.html" class="">보류 해소 대상자</a></li>
-								<li><a href="page-profile.html" class="">응소시간 수정대상</a></li>
+								<li><a th:href="@{/resource-work/reply-time}" class="">응소시간 수정대상</a></li>
 								<li><a href="page-profile.html" class="">부서 학과 누락인원</a></li>
 								<li><a href="page-profile.html" class="">학번 누락 인원</a></li>
 								<li><a href="page-profile.html" class="">성명 군번 동일인원</a></li>
@@ -150,7 +150,7 @@
 								<thead>
 								<tr>
 									<th style="width: 50px; padding: 10px"><input type="checkbox" id="checkAll"></th>
-									<th style="width: 100px">업무명</th>
+									<th>업무명</th>
 									<th style="width: 100px">유형</th>
 									<th style="width: 100px">우선순위</th>
 									<th>쿼리명</th>
@@ -163,7 +163,7 @@
 									<td th:text="${data.type}"></td>
 									<td th:text="${data.orderCost}"></td>
 									<td>
-										<a th:href="@{/manage/national-defense/{id}(id = ${data.id})}" th:text="${data.name}"></a>
+										<a th:href="@{/manage/resource/{id}(id = ${data.id})}" th:text="${data.name}"></a>
 									</td>
 								</tr>
 								</tbody>

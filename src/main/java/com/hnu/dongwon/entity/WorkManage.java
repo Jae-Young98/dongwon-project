@@ -37,7 +37,7 @@ public class WorkManage {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2000)
     private String query;
 
     @Column

@@ -52,7 +52,7 @@ public class ManageController {
     @GetMapping("/resource/{id}")
     public String resourceUpdate(@PathVariable Long id, Model model) {
         WorkManageResponseDto dto = workManageService.findById(id);
-        model.addAttribute("dats", workManageService.findWorkAsc("자원관리점검"));
+        model.addAttribute("datas", workManageService.findWorkAsc("자원관리점검"));
         model.addAttribute("data", dto);
 
         return "resource-update";
