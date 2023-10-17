@@ -9,6 +9,7 @@ import org.apache.poi.ss.formula.functions.Na;
 @Getter
 @NoArgsConstructor
 public class NationalDefenseSaveRequestDto {
+    private String work;
     private String category;
     private String type;
     private int orderCost;
@@ -18,7 +19,8 @@ public class NationalDefenseSaveRequestDto {
     private String others;
 
     @Builder
-    public NationalDefenseSaveRequestDto(String category, String type, int orderCost, String name, String query, String description, String others) {
+    public NationalDefenseSaveRequestDto(String work, String category, String type, int orderCost, String name, String query, String description, String others) {
+        this.work = work;
         this.category = category;
         this.type = type;
         this.orderCost = orderCost;
@@ -30,6 +32,7 @@ public class NationalDefenseSaveRequestDto {
 
     public NationalDefense toEntity() {
         return NationalDefense.builder()
+                .work(work)
                 .category(category)
                 .type(type)
                 .orderCost(orderCost)

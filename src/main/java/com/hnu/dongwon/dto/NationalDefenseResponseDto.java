@@ -8,6 +8,7 @@ import javax.persistence.Column;
 @Getter
 public class NationalDefenseResponseDto {
     private Long id;
+    private String work;
     private String category;
     private String type;
     private int orderCost;
@@ -18,6 +19,7 @@ public class NationalDefenseResponseDto {
 
     public NationalDefenseResponseDto(NationalDefense entity) {
         this.id = entity.getId();
+        this.work = entity.getWork();
         this.category = entity.getCategory();
         this.type = entity.getType();
         this.orderCost = entity.getOrderCost();

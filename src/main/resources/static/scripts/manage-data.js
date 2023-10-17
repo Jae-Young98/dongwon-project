@@ -1,5 +1,3 @@
-const getCategory = document.getElementById("manage").value;
-
 const main = {
     init : function () {
         const _this = this;
@@ -22,6 +20,7 @@ const main = {
 
     save : function () {
         const data = {
+            work: $('#work').val(),
             category: $('#category').val(),
             type: $('#type').val(),
             orderCost: $('#orderCost').val(),
@@ -30,10 +29,11 @@ const main = {
             description: $('#description').val(),
             others: $('#others').val()
         };
+        let uri = $('#uri').val();
 
         $.ajax({
             type: 'POST',
-            url: '/api/nd-data',
+            url: '/api/'+uri,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -57,10 +57,11 @@ const main = {
         };
 
         let id = $('#data-id').val();
+        let uri = $('#uri').val();
 
         $.ajax({
             type: 'PUT',
-            url: '/api/nd-data/'+id,
+            url: '/api/'+uri+'/'+id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -74,10 +75,11 @@ const main = {
 
     delete : function () {
         let id = $('#data-id').val();
+        let uri = $('#uri').val();
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/nd-data/'+id,
+            url: '/api/'+uri+'/'+id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8'
         }).done(function () {
