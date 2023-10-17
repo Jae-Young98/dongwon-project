@@ -1,9 +1,9 @@
 package com.hnu.dongwon.controller;
 
-import com.hnu.dongwon.dto.NationalDefenseResponseDto;
-import com.hnu.dongwon.dto.NationalDefenseSaveRequestDto;
-import com.hnu.dongwon.dto.NationalDefenseUpdateRequestDto;
-import com.hnu.dongwon.service.NationalDefenseService;
+import com.hnu.dongwon.dto.WorkManageResponseDto;
+import com.hnu.dongwon.dto.WorkManageSaveRequestDto;
+import com.hnu.dongwon.dto.WorkManageUpdateRequestDto;
+import com.hnu.dongwon.service.WorkManageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,34 +14,35 @@ import java.util.List;
 @RequestMapping("/api")
 public class ManageApiController {
 
-    private final NationalDefenseService nationalDefenseService;
+    private final WorkManageService workManageService;
 
-    @PostMapping("/nd-data")
-    public Long ndSave(@RequestBody NationalDefenseSaveRequestDto requestDto) {
-        return nationalDefenseService.save(requestDto);
+    @PostMapping("/insert-data")
+    public Long ndSave(@RequestBody WorkManageSaveRequestDto requestDto) {
+        return workManageService.save(requestDto);
     }
 
-    @PutMapping("/nd-data/{id}")
-    public Long ndUpdate(@PathVariable Long id, @RequestBody NationalDefenseUpdateRequestDto requestDto) {
-        return nationalDefenseService.update(id, requestDto);
+    @PutMapping("/update-data/{id}")
+    public Long ndUpdate(@PathVariable Long id, @RequestBody WorkManageUpdateRequestDto requestDto) {
+        return workManageService.update(id, requestDto);
     }
 
-    @DeleteMapping("/nd-data/{id}")
+    @DeleteMapping("/delete-data/{id}")
     public Long ndDelete(@PathVariable Long id) {
-        nationalDefenseService.delete(id);
+        workManageService.delete(id);
         return id;
     }
 
-    @DeleteMapping("/nd-data/deleteSelected")
+    @DeleteMapping("/delete-data/selected")
     public void ndDeleteSelected(@RequestBody List<Long> ids) {
         for (Long id : ids) {
-            nationalDefenseService.delete(id);
+            workManageService.delete(id);
         }
     }
 
-    @GetMapping("/nd-data/{id}")
-    public NationalDefenseResponseDto findById (@PathVariable Long id) {
-        return nationalDefenseService.findById(id);
+    @GetMapping("/data/{id}")
+    public WorkManageResponseDto findById (@PathVariable Long id) {
+        return workManageService.findById(id);
     }
+
 
 }

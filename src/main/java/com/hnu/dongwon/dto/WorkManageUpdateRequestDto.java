@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class NationalDefenseUpdateRequestDto {
+public class WorkManageUpdateRequestDto {
     private String type;
     private int orderCost;
     private String name;
@@ -15,7 +15,7 @@ public class NationalDefenseUpdateRequestDto {
     private String others;
 
     @Builder
-    public NationalDefenseUpdateRequestDto(String type, int orderCost, String name, String query, String description, String others) {
+    public WorkManageUpdateRequestDto(String type, int orderCost, String name, String query, String description, String others) {
         this.type = type;
         this.orderCost = orderCost;
         this.name = name;

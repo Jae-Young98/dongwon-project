@@ -1,9 +1,9 @@
 package com.hnu.dongwon;
 
-import com.hnu.dongwon.dto.NationalDefenseSaveRequestDto;
-import com.hnu.dongwon.dto.NationalDefenseUpdateRequestDto;
-import com.hnu.dongwon.entity.NationalDefense;
-import com.hnu.dongwon.repository.ManageNationalDefenseRepository;
+import com.hnu.dongwon.dto.WorkManageSaveRequestDto;
+import com.hnu.dongwon.dto.WorkManageUpdateRequestDto;
+import com.hnu.dongwon.entity.WorkManage;
+import com.hnu.dongwon.repository.WorkManageRepository;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.runner.RunWith;
@@ -32,11 +32,11 @@ public class ManageApiControllerTest {
     TestRestTemplate restTemplate;
 
     @Autowired
-    ManageNationalDefenseRepository manageNationalDefenseRepository;
+    WorkManageRepository workManageRepository;
 
     @AfterEach
     public void clear() {
-        manageNationalDefenseRepository.deleteAll();
+        workManageRepository.deleteAll();
     }
 
     @Test
@@ -49,7 +49,7 @@ public class ManageApiControllerTest {
         String query = "test Query";
         String description = "asdafasf";
         String others = "aaaa";
-        NationalDefenseSaveRequestDto requestDto = NationalDefenseSaveRequestDto.builder()
+        WorkManageSaveRequestDto requestDto = WorkManageSaveRequestDto.builder()
                 .category(category)
                 .type(type)
                 .orderCost(orderCost)
@@ -67,7 +67,7 @@ public class ManageApiControllerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
-        List<NationalDefense> dataList = manageNationalDefenseRepository.findAll();
+        List<WorkManage> dataList = workManageRepository.findAll();
         assertThat(dataList.get(0).getCategory()).isEqualTo(category);
         assertThat(dataList.get(0).getQuery()).isEqualTo(query);
         assertThat(dataList.get(0).getName()).isEqualTo(name);
@@ -84,7 +84,7 @@ public class ManageApiControllerTest {
         String query = "test Query";
         String description = "asdafasf";
         String others = "aaaa";
-        NationalDefense saveData = manageNationalDefenseRepository.save(NationalDefense.builder()
+        WorkManage saveData = workManageRepository.save(WorkManage.builder()
                 .category(category)
                 .type(type)
                 .orderCost(orderCost)
@@ -96,13 +96,13 @@ public class ManageApiControllerTest {
         Long updateId = saveData.getId();
         String expectedDescription = "update test";
 
-        NationalDefenseUpdateRequestDto requestDto = NationalDefenseUpdateRequestDto.builder()
+        WorkManageUpdateRequestDto requestDto = WorkManageUpdateRequestDto.builder()
                 .description(expectedDescription)
                 .build();
 
         String url = "http://localhost:" + port + "/api/nd-data/" + updateId;
 
-        HttpEntity<NationalDefenseUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
+        HttpEntity<WorkManageUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         // when
         ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
@@ -111,7 +111,7 @@ public class ManageApiControllerTest {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isGreaterThan(0L);
 
-        List<NationalDefense> dataList = manageNationalDefenseRepository.findAll();
+        List<WorkManage> dataList = workManageRepository.findAll();
         assertThat(dataList.get(1).getDescription()).isEqualTo(expectedDescription);
         System.err.println(dataList.get(1).getDescription());
     }

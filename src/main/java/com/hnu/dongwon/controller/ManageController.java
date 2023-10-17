@@ -1,7 +1,7 @@
 package com.hnu.dongwon.controller;
 
-import com.hnu.dongwon.dto.NationalDefenseResponseDto;
-import com.hnu.dongwon.service.NationalDefenseService;
+import com.hnu.dongwon.dto.WorkManageResponseDto;
+import com.hnu.dongwon.service.WorkManageService;
 import com.hnu.dongwon.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -18,21 +18,21 @@ import java.util.Map;
 @RequestMapping("/manage")
 public class ManageController {
 
-    private final NationalDefenseService nationalDefenseService;
+    private final WorkManageService workManageService;
     private final SearchService searchService;
     private List<Map<String, Object>> dataSet;
 
     @GetMapping("/national-defense")
     public String nationalDefense(Model model) {
-        model.addAttribute("datas", nationalDefenseService.findByWorkIs("국방자료업데이트"));
+        model.addAttribute("datas", workManageService.findWorkAsc("국방자료업데이트"));
 
         return "manage-nationalDefense";
     }
 
     @GetMapping("/national-defense/{id}")
     public String nationalDefenseUpdate(@PathVariable Long id, Model model) {
-        NationalDefenseResponseDto dto = nationalDefenseService.findById(id);
-        model.addAttribute("datas", nationalDefenseService.findByWorkIs("국방자료업데이트"));
+        WorkManageResponseDto dto = workManageService.findById(id);
+        model.addAttribute("datas", workManageService.findWorkAsc("국방자료업데이트"));
         model.addAttribute("data", dto);
 
         return "ND-update";
@@ -44,8 +44,18 @@ public class ManageController {
     }
 
     @GetMapping("/resource")
-    public String resource() {
+    public String resource(Model model) {
+        model.addAttribute("datas", workManageService.findWorkAsc("자원관리점검"));
         return "manage-resource";
+    }
+
+    @GetMapping("/resource/{id}")
+    public String resourceUpdate(@PathVariable Long id, Model model) {
+        WorkManageResponseDto dto = workManageService.findById(id);
+        model.addAttribute("dats", workManageService.findWorkAsc("자원관리점검"));
+        model.addAttribute("data", dto);
+
+        return "resource-update";
     }
 
     @GetMapping("/references")
