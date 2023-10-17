@@ -33,13 +33,13 @@ const main = {
 
         $.ajax({
             type: 'POST',
-            url: '/api/'+uri,
+            url: '/api/insert-data',
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function () {
             alert('업무가 추가 되었습니다.');
-            window.location.href = '/manage/national-defense';
+            window.location.href = '/manage/'+uri;
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -61,13 +61,13 @@ const main = {
 
         $.ajax({
             type: 'PUT',
-            url: '/api/'+uri+'/'+id,
+            url: '/api/update-data/'+id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8',
             data: JSON.stringify(data)
         }).done(function () {
             alert('업무가 수정 되었습니다.');
-            window.location.href = '/manage/national-defense';
+            window.location.href = '/manage/'+uri;
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -79,12 +79,12 @@ const main = {
 
         $.ajax({
             type: 'DELETE',
-            url: '/api/'+uri+'/'+id,
+            url: '/api/delete-data/'+id,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8'
         }).done(function () {
             alert('업무가 삭제 되었습니다.');
-            window.location.href = '/manage/national-defense';
+            window.location.href = '/manage/'+uri;
         }).fail(function (error) {
             alert(JSON.stringify(error));
         });
@@ -106,17 +106,18 @@ const main = {
         }
 
         const confirmAlert = confirm("삭제하시겠습니까?");
+        let uri = $('#uri').val();
 
         if (confirmAlert) {
             $.ajax({
                 type: 'DELETE',
-                url: '/api/nd-data/deleteSelected',
+                url: '/api/delete-data/selected',
                 data: JSON.stringify(idxArr),
                 dataType: 'text',
                 contentType: 'application/json; charset=utf-8'
             }).done(function () {
                 alert('업무가 삭제 되었습니다.');
-                window.location.href = '/manage/national-defense';
+                window.location.href = '/manage/'+uri;
             }).fail(function (error) {
                 alert(JSON.stringify(error));
             });
@@ -126,13 +127,15 @@ const main = {
 
 main.init();
 
-const checkAll = document.getElementById("checkAll");
-const checkboxes = document.querySelectorAll(".chk");
-checkAll.addEventListener("change", function() {
-    const isChecked = checkAll.checked;
+if (document.getElementById("checkAll")) {
+    const checkAll = document.getElementById("checkAll");
+    const checkboxes = document.querySelectorAll(".chk");
+    checkAll.addEventListener("change", function() {
+        const isChecked = checkAll.checked;
 
-    // 모든 개별 체크박스를 전체 선택 체크박스와 동일한 상태로 설정
-    for (let i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].checked = isChecked;
-    }
-});
+        // 모든 개별 체크박스를 전체 선택 체크박스와 동일한 상태로 설정
+        for (let i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = isChecked;
+        }
+    });
+}

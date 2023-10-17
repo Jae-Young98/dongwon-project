@@ -11,9 +11,9 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="Manage_NationalDefense")
+@Table(name="WORK_MANAGEMENT")
 @Entity
-public class NationalDefense {
+public class WorkManage {
 
     // 실제 DB의 테이블과 매핑, 객체
     // persistent 목적의 객체이기 때문에, request, response 값 전달 용도로 사용 x
@@ -37,7 +37,7 @@ public class NationalDefense {
     @Column
     private String name;
 
-    @Column
+    @Column(length = 2000)
     private String query;
 
     @Column

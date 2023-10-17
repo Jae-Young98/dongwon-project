@@ -1,14 +1,13 @@
 package com.hnu.dongwon.dto;
 
-import com.hnu.dongwon.entity.NationalDefense;
+import com.hnu.dongwon.entity.WorkManage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.apache.poi.ss.formula.functions.Na;
 
 @Getter
 @NoArgsConstructor
-public class NationalDefenseSaveRequestDto {
+public class WorkManageSaveRequestDto {
     private String work;
     private String category;
     private String type;
@@ -19,7 +18,7 @@ public class NationalDefenseSaveRequestDto {
     private String others;
 
     @Builder
-    public NationalDefenseSaveRequestDto(String work, String category, String type, int orderCost, String name, String query, String description, String others) {
+    public WorkManageSaveRequestDto(String work, String category, String type, int orderCost, String name, String query, String description, String others) {
         this.work = work;
         this.category = category;
         this.type = type;
@@ -30,8 +29,8 @@ public class NationalDefenseSaveRequestDto {
         this.others = others;
     }
 
-    public NationalDefense toEntity() {
-        return NationalDefense.builder()
+    public WorkManage toEntity() {
+        return WorkManage.builder()
                 .work(work)
                 .category(category)
                 .type(type)

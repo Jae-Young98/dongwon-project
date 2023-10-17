@@ -121,7 +121,7 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<h3 class="page-title" id="manage" value="NationalDefense">Defense data management tool</h3>
+					<h3 class="page-title">Resource management tool</h3>
 				</div>
 <!--				<div class="btn-group">-->
 <!--					<span class="group-btn"><button id="NDDataAdd" type="button" class="btn btn-success" data-toggle="modal" data-target="#insertModal">추가</button></span>-->
@@ -150,7 +150,7 @@
 										<td th:text="${data.type}"></td>
 										<td th:text="${data.orderCost}"></td>
 										<td>
-											<a th:href="@{/manage/national-defense/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
+											<a th:href="@{/manage/resource/{id}(id = ${data.getId()})}" th:text="${data.name}"></a>
 										</td>
 									</tr>
 									</tbody>
@@ -166,7 +166,6 @@
 							</div>
 							<div class="panel-body">
 								<form>
-									<input type="hidden" id="uri" value="national-defense">
 									<input type="hidden" id="data-id" th:value="${data.id}">
 									<div class="form-group">
 										<label for="category">업무명</label>
@@ -201,7 +200,7 @@
 								<div class="btn-group">
 									<span class="group-btn"><button id="btn-update" type="button" class="btn btn-success">수정</button></span>
 									<span class="group-btn"><button id="btn-delete" type="button" class="btn btn-danger">삭제</button></span>
-									<span class="group-btn"><button type="button" class="btn btn-primary" th:onclick="|location.href='@{/manage/national-defense}'|">취소</button></span>
+									<span class="group-btn"><button type="button" class="btn btn-primary" th:onclick="|location.href='@{/manage/resource}'|">취소</button></span>
 								</div>
 							</div>
 						</div>
@@ -252,6 +251,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
+						<input type="hidden" id="uri" value="resource">
 						<label for="category">업무명</label>
 						<input type="text" class="form-control" id="category" placeholder="업무명을 입력하세요.">
 					</div>
