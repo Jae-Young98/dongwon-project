@@ -1,10 +1,10 @@
 package com.hnu.dongwon.dto;
 
-import com.hnu.dongwon.entity.NationalDefense;
+import com.hnu.dongwon.entity.WorkManage;
 import lombok.Getter;
 
 @Getter
-public class NationalDefenseListResponseDto {
+public class WorkManageListResponseDto {
 
     private Long id;
     private String work;
@@ -16,7 +16,7 @@ public class NationalDefenseListResponseDto {
     private String description;
     private String others;
 
-    public NationalDefenseListResponseDto(NationalDefense entity) {
+    public WorkManageListResponseDto(WorkManage entity) {
         this.id = entity.getId();
         this.work = entity.getWork();
         this.category = entity.getCategory();

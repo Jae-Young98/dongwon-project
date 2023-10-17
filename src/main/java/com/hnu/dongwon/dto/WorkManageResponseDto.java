@@ -1,12 +1,10 @@
 package com.hnu.dongwon.dto;
 
-import com.hnu.dongwon.entity.NationalDefense;
+import com.hnu.dongwon.entity.WorkManage;
 import lombok.Getter;
 
-import javax.persistence.Column;
-
 @Getter
-public class NationalDefenseResponseDto {
+public class WorkManageResponseDto {
     private Long id;
     private String work;
     private String category;
@@ -17,7 +15,7 @@ public class NationalDefenseResponseDto {
     private String description;
     private String others;
 
-    public NationalDefenseResponseDto(NationalDefense entity) {
+    public WorkManageResponseDto(WorkManage entity) {
         this.id = entity.getId();
         this.work = entity.getWork();
         this.category = entity.getCategory();
