@@ -169,32 +169,32 @@
 									<input type="hidden" id="uri" value="national-defense">
 									<input type="hidden" id="data-id" th:value="${data.id}">
 									<div class="form-group">
-										<label for="category">업무명</label>
+										<label for="update-category">업무명</label>
 										<input type="text" class="form-control" id="update-category" th:value="${data.category}" readonly>
 									</div>
 									<div class="form-group">
-										<label for="type">유형</label>
+										<label for="update-type">유형</label>
 										<input type="text" class="form-control" id="update-type" th:value="${data.type}">
 									</div>
 									<div class="form-group">
-										<label for="orderCost">우선순위</label>
+										<label for="update-orderCost">우선순위</label>
 										<input type="text" class="form-control" id="update-orderCost" oninput="validateInput(this)" th:value="${data.orderCost}">
 										<div id="notification" class="notification">숫자를 입력해주세요.</div>
 									</div>
 									<div class="form-group">
-										<label for="name">쿼리명</label>
+										<label for="update-name">쿼리명</label>
 										<input type="text" class="form-control" id="update-name" th:value="${data.name}">
 									</div>
 									<div class="form-group">
-										<label for="description">설명</label>
+										<label for="update-description">설명</label>
 										<input type="text" class="form-control" id="update-description" th:value="${data.description}">
 									</div>
 									<div class="form-group">
-										<label for="others">제한사항</label>
+										<label for="update-others">제한사항</label>
 										<input type="text" class="form-control" id="update-others" th:value="${data.others}">
 									</div>
 									<div class="form-group">
-										<label for="query">쿼리</label>
+										<label for="update-query">쿼리</label>
 										<textarea class="form-control" id="update-query" th:text="${data.query}"></textarea>
 									</div>
 								</form>
