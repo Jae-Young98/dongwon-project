@@ -168,32 +168,32 @@
 								<form>
 									<input type="hidden" id="data-id" th:value="${data.id}">
 									<div class="form-group">
-										<label for="category">업무명</label>
+										<label for="update-category">업무명</label>
 										<input type="text" class="form-control" id="update-category" th:value="${data.category}" readonly>
 									</div>
 									<div class="form-group">
-										<label for="type">유형</label>
+										<label for="update-type">유형</label>
 										<input type="text" class="form-control" id="update-type" th:value="${data.type}">
 									</div>
 									<div class="form-group">
-										<label for="orderCost">우선순위</label>
+										<label for="update-orderCost">우선순위</label>
 										<input type="text" class="form-control" id="update-orderCost" oninput="validateInput(this)" th:value="${data.orderCost}">
 										<div id="notification" class="notification">숫자를 입력해주세요.</div>
 									</div>
 									<div class="form-group">
-										<label for="name">쿼리명</label>
+										<label for="update-name">쿼리명</label>
 										<input type="text" class="form-control" id="update-name" th:value="${data.name}">
 									</div>
 									<div class="form-group">
-										<label for="description">설명</label>
+										<label for="update-description">설명</label>
 										<input type="text" class="form-control" id="update-description" th:value="${data.description}">
 									</div>
 									<div class="form-group">
-										<label for="others">제한사항</label>
+										<label for="update-others">제한사항</label>
 										<input type="text" class="form-control" id="update-others" th:value="${data.others}">
 									</div>
 									<div class="form-group">
-										<label for="query">쿼리</label>
+										<label for="update-query">쿼리</label>
 										<textarea class="form-control" id="update-query" th:text="${data.query}"></textarea>
 									</div>
 								</form>
@@ -237,52 +237,6 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal Insert Data-->
-	<div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="insertData">업무 추가</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<input type="hidden" id="uri" value="resource">
-						<label for="category">업무명</label>
-						<input type="text" class="form-control" id="category" placeholder="업무명을 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label for="type">유형</label>
-						<input type="text" class="form-control" id="type" placeholder="유형을 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label for="orderCost">우선순위</label>
-						<input type="text" class="form-control" id="orderCost" oninput="validateInput(this)" placeholder="**중복 되지 않도록 주의**">
-					</div>
-					<div class="form-group">
-						<label for="name">쿼리명</label>
-						<input type="text" class="form-control" id="name" placeholder="">
-					</div>
-					<div class="form-group">
-						<label for="query">쿼리</label>
-						<input type="text" class="form-control" id="query" placeholder="**쿼리문을 정확히 입력하세요.**">
-					</div>
-					<div class="form-group">
-						<label for="description">설명</label>
-						<input type="text" class="form-control" id="description" placeholder="">
-					</div>
-					<div class="form-group">
-						<label for="others">제한사항</label>
-						<input type="text" class="form-control" id="others" placeholder="">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="btn-save">추가</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 				</div>
 			</div>
 		</div>

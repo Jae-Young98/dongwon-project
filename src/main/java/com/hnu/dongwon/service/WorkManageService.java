@@ -79,4 +79,10 @@ public class WorkManageService {
 
         return new WorkManageResponseDto(entity);
     }
+
+    public WorkManageResponseDto findByCategory (String category) {
+        WorkManage entity = workManageRepository.findByCategory(category);
+
+        return new WorkManageResponseDto(entity);
+    }
 }

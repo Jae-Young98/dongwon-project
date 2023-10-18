@@ -39,7 +39,7 @@ public class ResourceController {
     @GetMapping("/reply-time")
     public String replyTime(Model model) {
         // 카테고리 단일로 찾는것도 만들어야함
-        WorkManageResponseDto dto = workManageService.findByName("응소시간 수정대상");
+        WorkManageResponseDto dto = workManageService.findByCategory("응소시간_수정대상");
         // List<Map<String, Object>> list = searchService.search(dto.getQuery());
         // 테스트용 더미 데이터 삽입
         List<Map<String, Object>> list = new ArrayList<>();

@@ -17,8 +17,11 @@ public interface WorkManageRepository extends JpaRepository<WorkManage, Long> {
 
     List<WorkManage> findByWorkIs(String work);
 
+    // 해당 분류(편성카드, 전투편성 등) 우선순위 기준 오름차순 정렬
     @Query("SELECT w FROM WorkManage w WHERE w.category = :category ORDER BY w.orderCost ASC")
     List<WorkManage> findByCategoryCostAsc(@Param("category") String category);
+
+    WorkManage findByCategory(String category);
 
     WorkManage findByName(String name);
 }
