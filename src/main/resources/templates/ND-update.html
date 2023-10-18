@@ -138,7 +138,7 @@
 								<table class="table table-hover">
 									<thead>
 									<tr>
-										<th style="width: 100px">업무명</th>
+										<th>업무명</th>
 										<th style="width: 100px">유형</th>
 										<th style="width: 100px">우선순위</th>
 										<th>쿼리명</th>
@@ -238,51 +238,6 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal Insert Data-->
-	<div class="modal fade" id="insertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="insertData">업무 추가</h4>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<label for="category">업무명</label>
-						<input type="text" class="form-control" id="category" placeholder="업무명을 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label for="type">유형</label>
-						<input type="text" class="form-control" id="type" placeholder="유형을 입력하세요.">
-					</div>
-					<div class="form-group">
-						<label for="orderCost">우선순위</label>
-						<input type="text" class="form-control" id="orderCost" oninput="validateInput(this)" placeholder="**중복 되지 않도록 주의**">
-					</div>
-					<div class="form-group">
-						<label for="name">쿼리명</label>
-						<input type="text" class="form-control" id="name" placeholder="">
-					</div>
-					<div class="form-group">
-						<label for="query">쿼리</label>
-						<input type="text" class="form-control" id="query" placeholder="**쿼리문을 정확히 입력하세요.**">
-					</div>
-					<div class="form-group">
-						<label for="description">설명</label>
-						<input type="text" class="form-control" id="description" placeholder="">
-					</div>
-					<div class="form-group">
-						<label for="others">제한사항</label>
-						<input type="text" class="form-control" id="others" placeholder="">
-					</div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="btn-save">추가</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
 				</div>
 			</div>
 		</div>

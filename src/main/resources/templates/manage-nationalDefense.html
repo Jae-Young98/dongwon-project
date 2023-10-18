@@ -158,7 +158,7 @@
 									<thead>
 									<tr>
 										<th style="width: 50px; padding: 10px"><input type="checkbox" id="checkAll"></th>
-										<th style="width: 100px">업무명</th>
+										<th>업무명</th>
 										<th style="width: 100px">유형</th>
 										<th style="width: 100px">우선순위</th>
 										<th>쿼리명</th>
@@ -232,7 +232,19 @@
 					</div>
 					<div class="form-group">
 						<label for="category">업무명</label>
-						<input type="text" class="form-control" id="category" placeholder="업무명을 입력하세요.">
+						<select class="form-control" id="category">
+							<option value="편성카드_목록">편성카드목록</option>
+							<option value="전투편성_명부">전투편성명부</option>
+							<option value="교육훈련_결산">교육훈련결산</option>
+							<option value="교육훈련_초기화">교육훈련초기화</option>
+							<option value="동원보충대대_훈련결과">동원보충대대 훈련결과</option>
+							<option value="동원지정자_명부">동원지정자 명부</option>
+							<option value="보류자_현황">보류자 현황</option>
+							<option value="이월훈련대상_목록">이월훈련대상 목록</option>
+							<option value="출귀국_현황">출귀국 현황</option>
+							<option value="전투편성_기구도">전투편성기구도</option>
+							<option value="부서학과_코드">부서학과코드</option>
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="type">유형</label>
@@ -249,7 +261,7 @@
 					</div>
 					<div class="form-group">
 						<label for="query">쿼리</label>
-						<input type="text" class="form-control" id="query" placeholder="**쿼리문을 정확히 입력하세요.**">
+						<textarea class="form-control" id="query" placeholder="쿼리문을 정확히 입력하세요." rows="4"></textarea>
 					</div>
 					<div class="form-group">
 						<label for="description">설명</label>
