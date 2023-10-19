@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="WORK_MANAGEMENT")
+@Table(name="work_management")
 @Entity
 public class WorkManage {
 
