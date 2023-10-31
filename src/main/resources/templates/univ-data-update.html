@@ -152,11 +152,14 @@
 								<h3 class="panel-title">신학적 엑셀 파일을 업로드 해주세요.</h3>
 							</div>
 							<div class="panel-body">
-								<div class="files">
-									<input class="upload-name" value="파일선택" disabled="disabled">
-									<label for="filename">업로드</label>
-									<input type="file" id="filename" class="upload-hidden">
-								</div>
+								<form th:action="@{/read}" method="post" enctype="multipart/form-data" id="upload-form">
+									<div class="files">
+										<input class="upload-name" value="파일선택" disabled="disabled">
+										<label for="filename">업로드</label>
+										<input type="file" id="filename" th:name="file" class="upload-hidden">
+										<button type="button" id="confirm-button" class="btn btn-success">실행</button>
+									</div>
+								</form>
 							</div>
 						</div>
 						<!-- END TABLE HOVER -->
