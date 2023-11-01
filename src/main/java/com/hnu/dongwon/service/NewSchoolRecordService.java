@@ -38,6 +38,10 @@ public class NewSchoolRecordService {
         }
     }
 
+    public void deleteAll() {
+        newSchoolRecordRepository.deleteAll();
+    }
+
     private List<NewSchoolRecordSaveRequestDto> sheetToDB(Workbook workbook) throws IOException {
         String EXCEPT_WORDS = "[^ㄱ-ㅎㅏ-ㅣ가-힣a-zA-Z0-9]";
         Sheet worksheet = workbook.getSheetAt(0);
@@ -54,9 +58,9 @@ public class NewSchoolRecordService {
                     String schoolId = formatter.formatCellValue(row.getCell(5));
                     String resident = formatter.formatCellValue(row.getCell(6));
                     String serviceNum = formatter.formatCellValue(row.getCell(8));
-                    int gradeSet = Integer.parseInt(formatter.formatCellValue(row.getCell(9)));
-                    int grade = Integer.parseInt(formatter.formatCellValue(row.getCell(11)));
-                    int complete = Integer.parseInt(formatter.formatCellValue(row.getCell(12)));
+                    String gradeSet = formatter.formatCellValue(row.getCell(9));
+                    String grade = formatter.formatCellValue(row.getCell(11));
+                    String complete = formatter.formatCellValue(row.getCell(12));
                     String name = formatter.formatCellValue(row.getCell(13));
                     String status = formatter.formatCellValue(row.getCell(14));
                     String statusReason = formatter.formatCellValue(row.getCell(15));
@@ -76,9 +80,9 @@ public class NewSchoolRecordService {
                             .RESIDENT_REGISTRATION_NO(resident)
                             .BIRTH(resident.substring(0, 6))
                             .SERVICE_NO(serviceNum)
-                            .GRADE_SET(gradeSet)
-                            .GRADE(grade)
-                            .COMPLETE_GRADE(complete)
+                            .GRADE_SET(Integer.parseInt(gradeSet))
+                            .GRADE(Integer.parseInt(grade))
+                            .COMPLETE_GRADE(Integer.parseInt(complete))
                             .NAME(name)
                             .STATUS(status)
                             .STATUS_REASON(statusReason)

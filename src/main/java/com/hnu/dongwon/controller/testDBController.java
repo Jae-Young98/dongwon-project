@@ -1,6 +1,6 @@
 package com.hnu.dongwon.controller;
 
-import com.hnu.dongwon.dto.SchoolRecord;
+import com.hnu.dongwon.entity.SchoolRecord;
 import com.hnu.dongwon.repository.TestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

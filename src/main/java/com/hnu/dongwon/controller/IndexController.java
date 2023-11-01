@@ -3,6 +3,7 @@ package com.hnu.dongwon.controller;
 import com.hnu.dongwon.repository.TestRepository;
 import com.hnu.dongwon.service.NewSchoolRecordService;
 import com.hnu.dongwon.service.SearchService;
+import com.hnu.dongwon.service.UpdateDataService;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -27,6 +28,7 @@ public class IndexController {
 
     private final SearchService searchService;
     private final NewSchoolRecordService newSchoolRecordService;
+    private final UpdateDataService updateDataService;
 
     @GetMapping("/")
     public String index(Model model, String str) {
@@ -63,7 +65,9 @@ public class IndexController {
             workbook = new HSSFWorkbook(file.getInputStream());
         }
 
+        newSchoolRecordService.deleteAll();
         newSchoolRecordService.saveAll(workbook);
+        updateDataService.updateData();
 
         return "testView";
     }
