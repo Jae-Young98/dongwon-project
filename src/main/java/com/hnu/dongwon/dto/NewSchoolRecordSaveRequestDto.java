@@ -41,7 +41,7 @@ public class NewSchoolRecordSaveRequestDto {
         this.MAJOR_2 = MAJOR_2;
         this.PROCESS = PROCESS;
         this.SCHOOL_ID = SCHOOL_ID;
-        this.RESIDENT_REGISTRATION_NO = RESIDENT_REGISTRATION_NO.substring(0, 6);
+        this.RESIDENT_REGISTRATION_NO = RESIDENT_REGISTRATION_NO;
         this.BIRTH = BIRTH;
         this.SERVICE_NO = SERVICE_NO;
         this.GRADE_SET = GRADE_SET;
@@ -67,7 +67,7 @@ public class NewSchoolRecordSaveRequestDto {
                 .PROCESS(PROCESS)
                 .SCHOOL_ID(SCHOOL_ID)
                 .RESIDENT_REGISTRATION_NO(RESIDENT_REGISTRATION_NO)
-                .BIRTH(RESIDENT_REGISTRATION_NO.substring(0, 6))
+                .BIRTH(BIRTH)
                 .SERVICE_NO(SERVICE_NO)
                 .GRADE_SET(GRADE_SET)
                 .SEMESTER_SET(SEMESTER_SET)

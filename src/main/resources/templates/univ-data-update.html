@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Main | 한남대학교 - 국동체 보조업무</title>
+	<title>학적 업데이트 | 한남대학교 - 국동체 보조업무</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -9,16 +9,19 @@
 	<link rel="stylesheet" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
 	<link rel="stylesheet" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}">
 	<link rel="stylesheet" th:href="@{/vendor/linearicons/style.css}">
-	<link rel="stylesheet" th:href="@{/vendor/chartist/css/chartist-custom.css}">
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" th:href="@{/css/main.css}">
+	<!-- MANAGE CSS -->
+	<link rel="stylesheet" th:href="@{/css/manage.css}">
+	<!-- UPLOAD CSS -->
+	<link rel="stylesheet" th:href="@{/css/upload.css}">
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" th:href="@{assets/css/demo.css}">
+	<link rel="stylesheet" th:href="@{/css/demo.css}">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" th:href="@{/img/real-favicon.png}">
-	<link rel="icon" type="image/png" sizes="96x96" th:href="@{/img/real-favicon.png}">
+	<link rel="apple-touch-icon" sizes="76x76" href="/img/real-favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/img/real-favicon.png">
 </head>
 
 <body>
@@ -33,41 +36,6 @@
 				<div class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 				</div>
-				<!-- Search bar -->
-				<!-- <form class="navbar-form navbar-left">
-					<div class="input-group">
-						<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-						<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
-					</div>
-				</form> -->
-				<!-- <div id="navbar-menu">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-								<i class="lnr lnr-alarm"></i>
-								<span class="badge bg-danger">5</span>
-							</a>
-							<ul class="dropdown-menu notifications">
-								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-								<li><a href="#" class="more">See all notifications</a></li>
-							</ul>
-						</li>
-						// Dropdown menu
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Basic Use</a></li>
-								<li><a href="#">Working With Data</a></li>
-								<li><a href="#">Security</a></li>
-								<li><a href="#">Troubleshooting</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div> -->
 			</div>
 		</nav>
 		<!-- END NAVBAR -->
@@ -100,11 +68,9 @@
 							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
 								<ul class="nav">
-									<li><a th:href="@{/univ/school-record}" class="">학적부</a></li>
-									<li><a href="page-login.html" class="">입학-복학-편입</a></li>
-									<li><a href="page-lockscreen.html" class="">졸업-이수-휴학-퇴학</a></li>
-									<li><a href="page-lockscreen.html" class="">교직원 재직자 명부</a></li>
-									<li><a href="page-lockscreen.html" class="">훈련일 선택 결과</a></li>
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
 								</ul>
 							</div>
 						</li>
@@ -163,14 +129,9 @@
 						</li>
 						<li>
 							<div class="side-nav-btn-group">
-								<span class="input-btn"><button id="modal-btn" type="button" class="btn btn-success" data-toggle="modal" data-target="#worksModal">업무 관리</button></span>
+								<span class="input-btn"><button id="download" type="button" class="btn btn-success" data-toggle="modal" data-target="#worksModal">업무 관리</button></span>
 							</div>
 						</li>
-						<!-- <li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
-						<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
-						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
-						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
-						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li> -->
 					</ul>
 				</nav>
 			</div>
@@ -181,66 +142,63 @@
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
 				<div class="container-fluid">
-					<!-- OVERVIEW -->
-					<div class="panel panel-headline">
-						<div class="panel-heading">
-							<div class="clock">
-								<span id="date">date</span>
+					<h3 class="page-title">학적부 업데이트</h3>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<!-- TABLE HOVER -->
+						<div class="panel">
+							<div class="panel-heading">
+								<h3 class="panel-title">신학적 엑셀 파일을 업로드 해주세요.</h3>
 							</div>
-							<div class="clock">
-								<span id="clock">clock</span>
-								<span id="apm">ampm</span>
-							</div>
-						</div>
-						<div class="panel-body">
-							<h3>SQL 구문으로 빠른 검색</h3>
-							<div class="row">
-								<div class="col-md-6">
-									<form th:action="@{/tables/search}" method="post" class="search-form">
-										<div class="input-group">
-											<input type="text" name="sql" th:value="${sql}" class="form-control" placeholder="Search syntax">
-											<span class="input-group-btn"><button type="submit" class="btn btn-primary">search</button></span>
-										</div>
-									</form>
+							<div class="panel-body">
+								<form th:action="@{/read}" method="post" enctype="multipart/form-data" id="upload-form">
+									<div class="files">
+										<input class="upload-name" value="파일선택" disabled="disabled">
+										<label for="filename">업로드</label>
+										<input type="file" id="filename" th:name="file" class="upload-hidden">
+										<button type="button" id="confirm-button" class="btn btn-success">실행</button>
+									</div>
+								</form>
 							</div>
 						</div>
+						<!-- END TABLE HOVER -->
 					</div>
 				</div>
 			</div>
+			<!-- END MAIN CONTENT -->
 		</div>
 		<!-- END MAIN -->
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a>
-				</p>
+				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
 			</div>
 		</footer>
-		<!-- Modal -->
-		<div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">업무 관리</h4>
-					</div>
-					<div class="modal-body">
-						<h4>관리할 업무를 선택 하세요.</h4>
-						<ul class="nav">
-							<li><a th:href="@{/manage/national-defense}" class=""><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span></a></li>
-							<li><a th:href="@{/manage/univ}" class=""><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span></a></li>
-							<li><a th:href="@{/manage/resource}" class=""><i class="lnr lnr-file-empty"></i> <span>자원관리 점검</span></a></li>
-							<li><a th:href="@{/manage/references}" class=""><i class="lnr lnr-file-empty"></i> <span>참고자료</span></a></li>
-							<li><a th:href="@{/manage/training}" class=""><i class="lnr lnr-file-empty"></i> <span>교육훈련 점검</span></a></li>
-						</ul>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="worksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">업무 관리</h4>
+				</div>
+				<div class="modal-body">
+					<h4>관리할 업무를 선택 하세요.</h4>
+					<ul class="nav">
+						<li><a th:href="@{/manage/national-defense}" class=""><i class="lnr lnr-file-empty"></i> <span>국방자료 업데이트</span></a></li>
+						<li><a th:href="@{/manage/univ}" class=""><i class="lnr lnr-file-empty"></i> <span>대학자료 업데이트</span></a></li>
+						<li><a th:href="@{/manage/resource}" class=""><i class="lnr lnr-file-empty"></i> <span>자원관리 점검</span></a></li>
+						<li><a th:href="@{/manage/references}" class=""><i class="lnr lnr-file-empty"></i> <span>참고자료</span></a></li>
+						<li><a th:href="@{/manage/training}" class=""><i class="lnr lnr-file-empty"></i> <span>교육훈련 점검</span></a></li>
+					</ul>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
@@ -248,38 +206,8 @@
 	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="/scripts/klorofil-common.js"></script>
-	<script>
-        var Target = document.getElementById("clock");
-        var Target_apm = document.getElementById("apm");
-		var Target_date = document.getElementById("date");
-        function clock() {
-            var time = new Date();
-
-			var month = time.getMonth();
-			var date = time.getDate();
-			var day = time.getDay();
-			var week = ['일', '월', '화', '수', '목', '금', '토'];
-
-            var hours = time.getHours();
-            var minutes = time.getMinutes();
-            var seconds = time.getSeconds();
-            var AmPm ="AM";
-            if(hours > 12){   
-                var AmPm ="PM";
-                hours %= 12;
-            }
-
-            Target.innerText = 
-            `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-
-            Target_apm.innerText = `${AmPm}`;
-
-			Target_date.innerText = `${month + 1}월 ${date}일 ${week[day]}요일`;
-
-        }
-        clock();
-        setInterval(clock, 1000); // 1초마다 실행
-    </script>
-</body>>
+	<script src="/scripts/manage-data.js"></script>
+	<script src="/scripts/basic.js"></script>
+</body>
 
 </html>
